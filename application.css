@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light background color */
+    color: #333; /* Text color */
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card {
+    width: 400px;
+    border-radius: 15px;
+  }
+  
+  .card-header {
+    border-radius: 15px 15px 0 0;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #ff6b6b !important; /* Primary button color */
+    border-color: #ff6b6b !important;
+  }
+  
+  .btn-primary:hover {
+    background-color: #f55252 !important; /* Darker shade on hover */
+    border-color: #f55252 !important;
+  }
+  
+  .form-label {
+    color: #ff6b6b; /* Label color */
+  }
+  
+  .form-control {
+    border-color: #ff6b6b; /* Input border color */
+  }
+  
+  .form-select {
+    border-color: #ff6b6b; /* Select border color */
+  }
+  
+  .form-select:focus {
+    border-color: #f55252; /* Select border color on focus */
+  }
+  

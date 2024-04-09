@@ -25,8 +25,7 @@
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $sql = "INSERT INTO users(username, email, password) VALUES('$username', '$email', '$hash')";
                 $result = mysqli_query($conn, $sql);
-                if($result){
-                    header("Location: login.php");
+w                    header("Location: login.php");
                 }
             }
             else{
