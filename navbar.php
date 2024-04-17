@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary pt-3">
   <div class="container-fluid">
 
-    <h1><a class="navbar-brand" href="index.php">Scholarship Portal</a></h1>
+    <h1><a class="navbar-brand" href="landing.php">Scholarship Portal</a></h1>
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
        

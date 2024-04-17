@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['username'])){
-    header("Location: home.php");
+    header("Location: chome.php");
     exit(); // Ensure script termination after redirect
 }
 ?>
@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
 
             $_SESSION['username'] = $row['company_name'];
             $_SESSION['loggedin'] = true;
-            header("Location: home.php");
+            header("Location: chome.php");
             exit();
         }
     } else {  

@@ -18,8 +18,8 @@
         <a href="#">Result</a>
         <a class="btn btn-outline-danger mx-2" type="submit" href="about.php">About</a>
         <a class="btn btn-outline-danger mx-2" type="submit" href="logout.php">Logout</a>
+        <a class="btn btn-outline-danger mx-2" type="submit" href="capplication.php">Add Scholarship</a> <!-- Modified line -->
         
-        <a class="btn btn-outline-danger mx-2" type="submit" href="scholarships.php">View Scholarships</a> <!-- New line -->
     </div>
 </nav>
 
@@ -28,7 +28,7 @@
             <h3>Get Scholarship From</h3>
             <h1>Top Companies Like<span class="change_content"> </span> <span style="margin-top: -10px;"> | </span> </h1>
             <p>"Grow India Together"</p>
-            <a href="#" class="btnone">Eligible Scholarships</a>
+            <a href="#" class="btnone">Add Scholarship</a>
             
         </section>
     </main>

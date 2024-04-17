@@ -1,18 +1,29 @@
 <?php
+session_start();
 
+// Check if companyID is set in the session
+if(!isset($_SESSION['company_id'])){
+    // Redirect to login page if companyID is not set
+    header("Location: login.php");
+    exit(); // Ensure that script stops execution after redirection
+}
+
+// Get the logged-in company's ID from the session
+$company_id = $_SESSION['company_id'];
 // Check if form is submitted
+
 if(isset($_POST['submit'])) {
     // Extracting form data
-    $scholarshipName = $_POST["scholarshipName"];
+    $scholarship_name = $_POST["scholarshipName"];
     $state = $_POST["state"];
     $caste = $_POST["caste"];
     $gender = $_POST["gender"];
-    $tenthPercent = $_POST["tenthPercent"];
-    $twelfthPercent = $_POST["twelfthPercent"];
-    $diplomaScore = $_POST["diplomaScore"]; // New attribute
+    $tenth_percent = $_POST["tenthPercent"];
+    $twelfth_percent = $_POST["twelfthPercent"];
     $nationality = $_POST["nationality"]; 
-    $annualIncome = $_POST["annualIncome"];
-    $grantAmount = $_POST["grantAmount"];
+    $annual_income = $_POST["annualIncome"];
+    $grant_amount = $_POST["grantAmount"];
+    $scholarship_description = $_POST["scholarshipDescription"];
 
     // Database connection parameters
     $host = "localhost";
@@ -29,7 +40,7 @@ if(isset($_POST['submit'])) {
     }
 
     // Prepare SQL statement
-    $sql = "INSERT INTO criteria (scholarshipName, state, caste, gender, tenthPercent, twelfthPercent, diplomaScore, nationality, annualIncome, grantAmount) 
+    $sql = "INSERT INTO scholarship (scholarship_name, state, caste, gender, tenth_percent, twelfth_percent, nationality, annual_income, grantAmount,scholarship_description,company_id) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
     $stmt = mysqli_stmt_init($conn);
@@ -37,7 +48,7 @@ if(isset($_POST['submit'])) {
     // Prepare statement
     if(mysqli_stmt_prepare($stmt, $sql)) {
         // Bind parameters
-        mysqli_stmt_bind_param($stmt, "ssssddisis", $scholarshipName, $state, $caste, $gender, $tenthPercent, $twelfthPercent, $diplomaScore, $nationality, $annualIncome, $grantAmount);
+        mysqli_stmt_bind_param($stmt, "ssssddisis", $scholarship_name, $state, $caste, $gender, $tenth_percent, $twelfth_percent, $nationality, $annual_income, $grant_amount,$scholarship_description,$company_id);
         
         // Execute statement
         if(mysqli_stmt_execute($stmt)) {
@@ -90,8 +101,7 @@ if(isset($_POST['submit'])) {
         <label for="twelfthPercent">Minimum 12th Percentage:</label><br>
         <input type="number" id="twelfthPercent" name="twelfthPercent" min="0" max="100" required><br>
         
-        <label for="diplomaScore">Diploma Score:</label><br>
-        <input type="number" id="diplomaScore" name="diplomaScore"><br>
+        
         
         <label for="nationality">Nationality:</label><br>
         <input type="text" id="nationality" name="nationality" required><br>
@@ -101,7 +111,10 @@ if(isset($_POST['submit'])) {
 
         <label for="grantAmount">Grant Amount:</label><br>
         <input type="number" id="grantAmount" name="grantAmount" required><br>
-        
+
+        <label for="scholarshipDescription">Scholarship Description:</label><br>
+        <textarea id="scholarshipDescription" name="scholarshipDescription" rows="4" cols="50"></textarea><br>
+
         <input type="submit" name="submit" value="Submit">
     
     </form>
